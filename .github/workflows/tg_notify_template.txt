@@ -1,0 +1,10 @@
+﻿${STATUS_EMOJI} GitHub Action #${GITHUB_RUN_NUMBER}
+
+*Environment:* `PRODUCTION`
+*App:* `UNIONE WEB SITE`
+*Committer:* `${GIT_COMMITTER_USERNAME}`
+*Commit message:* `${GIT_COMMIT_MESSAGE}`
+*Branch:* `${GITHUB_REF}`
+*Repository:* `${GITHUB_REPOSITORY}`
+
+*See changes:* https://github.com/${GITHUB_REPOSITORY}/commit/${GIT_SHA_SHORT}

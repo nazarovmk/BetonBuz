@@ -1,0 +1,111 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles here */
+html,
+body {
+    scrollbar-gutter: stable;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@layer base {
+    body {
+        /* @apply font-greycliff dark:text-white dark:bg-main; */
+        @apply font-greycliff dark:bg-white;
+
+
+
+    }
+}
+
+@layer components {
+    .container {
+        @apply mx-auto px-4 max-w-[1720px];
+    }
+
+    .title {
+        @apply font-bold text-xl lg:text-3xl xl:text-4xl 2xl:text-5xl dark:text-white uppercase;
+    }
+
+    .subtitle {
+        @apply font-bold font-sfPro text-sm md:text-base lg:text-lg xl:text-xl dark:text-white md:leading-5 lg:leading-8 xl:leading-10;
+    }
+
+    .ph {
+        @apply font-medium font-sfPro text-xs lg:text-sm xl:text-base 2xl:text-lg dark:text-white/[.6] leading-4 xl:leading-8;
+    }
+
+    .card {
+        @apply border dark:border-white/[.1] dark:bg-black-1 rounded-2xl lg:rounded-3xl xl:rounded-[40px] overflow-hidden;
+    }
+
+    .link:link, .link:visited {
+        @apply relative after:absolute after:h-0.5 after:w-0 after:-bottom-0.5 after:left-0 after:right-0 after:mx-auto after:duration-500 dark:after:bg-purple;
+    }
+
+    .link:link:hover, .link:visited:hover {
+        @apply after:w-full;
+    }
+
+    .link-active:link, .link-active:visited {
+        @apply after:w-full;
+    }
+}
+
+* {
+    @apply box-border m-0 p-0 text-inherit font-inherit;
+}
+
+*::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #2a2d35;
+    border-radius: 10px;
+}
+
+/* transitions */
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.3s;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
+
+.fade-enter-to,
+.fade-leave-from {
+    opacity: 1;
+}
+
+.route-enter-from {
+    opacity: 0;
+    transform: translateY(-30px);
+}
+
+.route-leave-to {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.route-enter-active {
+    transition: all 0.3s ease-out;
+}
+
+.route-leave-active {
+    transition: all 0.3s ease-out;
+}
+
+.route-enter-to, .route-leave-from {
+    opacity: 1;
+    transform: translateY(0);
+}

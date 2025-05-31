@@ -1,0 +1,45 @@
+﻿name: deploy unione eld web site
+
+on:
+  push:
+    branches:
+      - 'master'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+
+      - name: Node Install
+        run: |
+          npm install
+          npm update
+      - name: Node Build
+        run: |
+          npm run build
+
+      - name: copy file to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          port: ${{ secrets.SSH_PORT }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.PASSWORD }}
+          source: .output/*
+          target: /home/projects/cmm/
+      - name: Notify Telegram
+        uses: up9cloud/action-notify@master
+        if: always()
+        env:
+          GITHUB_JOB_STATUS: ${{ job.status }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.CHAT_ID }}
+          TELEGRAM_TEMPLATE_PATH: "./.github/workflows/tg_notify_template.txt"
+          TELEGRAM_PARSE_MODE: Markdown
