@@ -27,7 +27,7 @@ onMounted(() => {
 			<div v-for="key in testimonialKeys" :key="key" class="bg-[#F9F9F9] rounded-xl p-6 text-left shadow-md flex flex-col justify-between" data-aos="flip-left">
 				<div>
 					<div class="text-gray-300 mb-4">
-						<img :src="quoteImg" alt="Quote" />
+						<img :src="quoteImg" alt="Beton-teshish-kesish" />
 					</div>
 					<p class="text-[#1E1E1E] text-base mb-4">{{ t(`testimonials.list.${key}.text`) }}</p>
 				</div>

@@ -5,7 +5,7 @@
 				class="inline-flex items-center gap-2 bg-[#F9F9F9] shadow-md rounded-[12px] px-4 py-2 text-md text-[#1E1E1E] mb-6 border-[3px] border-white cursor-pointer"
 				style="box-shadow: 0px 4px 10.3px 0px #5c5c5c1a"
 			>
-				<img :src="starImg" alt="Star Icon" />
+				<img :src="starImg" alt="Beton-teshish-kesish" />
 				{{ $t('smartSolution.title') }}
 			</div>
 			<h2 class="text-2xl md:text-4xl font-medium my-2 text-[#1E1E1E]">
@@ -16,7 +16,7 @@
 		<div class="relative max-w-6xl mx-auto mt-[32px] px-4">
 			<div class="solutions-grid space-y-8 md:space-y-0">
 				<div v-for="(item, index) in solutions" :key="index">
-					<img :src="item.img" :alt="item.alt" class="solution-img" />
+					<img :src="item.img" alt="Beton-teshish-kesish" class="solution-img" />
 				</div>
 			</div>
 		</div>
@@ -35,29 +35,17 @@ import ai1 from '/Artboard4.jpg';
 import ai2 from '/Artboard1.jpg';
 import ai3 from '/bur.jpg';
 import ai4 from '/hiltibur.jpg';
-import Mai1 from '/Artboard4.jpg';
-import Mai2 from '/Artboard1.jpg';
-import Mai3 from '/bur.jpg';
-import Mai4 from '/hiltibur.jpg';
 
-const solutions = ref<{ img: string; alt: string }[]>([]);
+interface Solution {
+	img: string;
+}
+
+const solutions = ref<Solution[]>([]);
 
 function updateSolutions() {
 	const isMobile = window.innerWidth < 768;
 
-	solutions.value = isMobile
-		? [
-				{ img: Mai1, alt: t('mobileCandidates') },
-				{ img: Mai2, alt: t('mobileInterviewResults') },
-				{ img: Mai3, alt: t('mobileAnalyticsReport') },
-				{ img: Mai4, alt: t('mobileburHilti') }
-		  ]
-		: [
-				{ img: ai1, alt: t('candidatesBlock') },
-				{ img: ai2, alt: t('interviewResults') },
-				{ img: ai3, alt: t('analyticsReport') },
-				{ img: ai4, alt: t('burHilti') }
-		  ];
+	solutions.value = [{ img: ai1 }, { img: ai2 }, { img: ai3 }, { img: ai4 }];
 }
 
 onMounted(() => {

@@ -1,18 +1,17 @@
 <template>
-	<section class="py-20 sm:pt-14 md:pt-20">
+	<section class="py-14 md:py-20">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 text-center">
 			<!-- Top badge + heading -->
 			<div class="mb-10 sm:mb-14">
-				<div class="inline-flex items-center gap-2 bg-[#F9F9F9] shadow-sm border rounded-xl px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm text-[#1E1E1E] border-[#FFFFFF]">
-					<img :src="jobIcon" alt="" class="h-4 sm:h-5 md:h-6 w-auto" />
-					<span>{{ $t('hiringChallenges.badge') }}</span>
-				</div>
+				<span class="inline-flex items-center gap-2 bg-[#F9F9F9] shadow-sm border rounded-xl px-3 py-1.5 text-xs sm:text-sm text-[#1E1E1E] border-[#FFFFFF]">
+					{{ $t('hiringChallenges.badge') }}
+				</span>
 
-				<h2 class="text-xl sm:text-2xl md:text-4xl text-[#1E1E1E] font-semibold sm:font-medium mt-4 sm:mt-6 leading-snug md:leading-snug">
+				<h2 class="mt-4 sm:mt-6 text-xl sm:text-2xl md:text-4xl text-[#1E1E1E] font-semibold sm:font-medium leading-snug">
 					{{ $t('hiringChallenges.title') }}
 				</h2>
 
-				<p class="text-[#0A2A66] mt-2 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+				<p class="mt-2 text-sm sm:text-base md:text-lg text-[#0A2A66] leading-relaxed max-w-2xl mx-auto">
 					<span class="text-[#2A6FF5] font-medium">{{ $t('hiringChallenges.highlightedPart') }}</span>
 					{{ $t('hiringChallenges.textPart1') }}
 					<a href="#" class="text-[#1E1E1E] font-medium underline-offset-2 hover:underline">{{ $t('hiringChallenges.link1') }}</a>
@@ -24,39 +23,14 @@
 
 			<!-- Stats Cards -->
 			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 md:gap-8">
-				<!-- Card 1 -->
-				<div class="animated-card" :ref="(el) => (cards[0] = el)" :style="{ transitionDelay: '0s' }">
-					<div class="bg-[#3660E6] text-white p-5 sm:p-6 rounded-2xl text-left flex flex-col gap-4 sm:gap-6 w-full">
-						<img :src="jobSearchIcon" alt="Icon" class="h-10 sm:h-12 w-10 sm:w-12" />
-						<h3 class="text-2xl sm:text-3xl font-semibold">{{ $t('hiringChallenges.cards.card1.title') }}</h3>
-						<p class="text-sm sm:text-[15px] font-normal leading-relaxed">{{ $t('hiringChallenges.cards.card1.text') }}</p>
-					</div>
-				</div>
-
-				<!-- Card 2 -->
-				<div class="animated-card" :ref="(el) => (cards[1] = el)" :style="{ transitionDelay: '0.3s' }">
-					<div class="bg-[#3660E6] text-white p-5 sm:p-6 rounded-2xl text-left flex flex-col gap-4 sm:gap-6 w-full">
-						<img :src="resumeIcon" alt="Icon" class="h-10 sm:h-12 w-10 sm:w-12" />
-						<h3 class="text-2xl sm:text-3xl font-semibold">{{ $t('hiringChallenges.cards.card2.title') }}</h3>
-						<p class="text-sm sm:text-[15px] font-normal leading-relaxed">{{ $t('hiringChallenges.cards.card2.text') }}</p>
-					</div>
-				</div>
-
-				<!-- Card 3 -->
-				<div class="animated-card" :ref="(el) => (cards[2] = el)" :style="{ transitionDelay: '0.6s' }">
-					<div class="bg-[#3660E6] text-white p-5 sm:p-6 rounded-2xl text-left flex flex-col gap-4 sm:gap-6 w-full">
-						<img :src="employeeIcon" alt="Icon" class="h-10 sm:h-12 w-10 sm:w-12" />
-						<h3 class="text-2xl sm:text-3xl font-semibold">{{ $t('hiringChallenges.cards.card3.title') }}</h3>
-						<p class="text-sm sm:text-[15px] font-normal leading-relaxed">{{ $t('hiringChallenges.cards.card3.text') }}</p>
-					</div>
-				</div>
-
-				<!-- Card 4 -->
-				<div class="animated-card" :ref="(el) => (cards[3] = el)" :style="{ transitionDelay: '0.9s' }">
-					<div class="bg-[#3660E6] text-white p-5 sm:p-6 rounded-2xl text-left flex flex-col gap-4 sm:gap-6 w-full">
-						<img :src="taskListIcon" alt="Icon" class="h-10 sm:h-12 w-10 sm:w-12" />
-						<h3 class="text-2xl sm:text-3xl font-semibold">{{ $t('hiringChallenges.cards.card4.title') }}</h3>
-						<p class="text-sm sm:text-[15px] font-normal leading-relaxed">{{ $t('hiringChallenges.cards.card4.text') }}</p>
+				<div v-for="(card, index) in cardsData" :key="index" class="animated-card" :ref="(el) => (cards[index] = el)" :style="{ transitionDelay: `${index * 0.3}s` }">
+					<div class="bg-[#3660E6] text-white p-5 sm:p-6 rounded-2xl flex flex-col gap-4 sm:gap-6 h-full">
+						<h3 class="text-2xl sm:text-3xl font-semibold">
+							{{ $t(`hiringChallenges.cards.card${index + 1}.title`) }}
+						</h3>
+						<p class="text-sm sm:text-[15px] leading-relaxed">
+							{{ $t(`hiringChallenges.cards.card${index + 1}.text`) }}
+						</p>
 					</div>
 				</div>
 			</div>
@@ -65,20 +39,17 @@
 </template>
 
 <script setup>
-import { ref, onMounted, nextTick } from 'vue';
-
-// Rasmlarni import qilish
-import jobIcon from '/Job.svg';
-import jobSearchIcon from '/JobSearch.svg';
-import resumeIcon from '/Resume.svg';
-import employeeIcon from '/employee.svg';
-import taskListIcon from '/TaskList.svg';
+import { ref, onMounted } from 'vue';
 
 const cards = ref([]);
+const cardsData = ref([
+	{ title: 'card1.title', text: 'card1.text' },
+	{ title: 'card2.title', text: 'card2.text' },
+	{ title: 'card3.title', text: 'card3.text' },
+	{ title: 'card4.title', text: 'card4.text' }
+]);
 
-onMounted(async () => {
-	await nextTick();
-
+onMounted(() => {
 	if ('IntersectionObserver' in window) {
 		const observer = new IntersectionObserver(
 			(entries) => {
@@ -103,10 +74,8 @@ onMounted(async () => {
 .animated-card {
 	opacity: 0;
 	transform: translateY(60px);
-	transition: all 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+	transition: opacity 0.8s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
 	visibility: hidden;
-	will-change: opacity, transform;
-	height: 100%; /* 💡 kartani to‘liq bo‘yda egallash */
 	display: flex;
 }
 

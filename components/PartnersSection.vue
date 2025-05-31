@@ -9,13 +9,13 @@
 				<div class="flex animate-marquee">
 					<div class="flex min-w-max gap-8 sm:gap-10 md:gap-24">
 						<template v-for="(logo, i) in logos" :key="'first-' + i">
-							<img :src="logo" alt="Partner Logo" class="h-8 sm:h-8 w-auto flex-shrink-0" />
+							<img :src="logo" alt="Beton-teshish-kesish" class="h-8 sm:h-8 w-auto flex-shrink-0" />
 						</template>
 					</div>
 
 					<div class="flex min-w-max gap-8 sm:gap-10 ml-8 md:gap-24">
 						<template v-for="(logo, i) in logos" :key="'second-' + i">
-							<img :src="logo" alt="Partner Logo" class="h-8 sm:h-8 w-auto flex-shrink-0" />
+							<img :src="logo" alt="Beton-teshish-kesish" class="h-8 sm:h-8 w-auto flex-shrink-0" />
 						</template>
 					</div>
 				</div>
