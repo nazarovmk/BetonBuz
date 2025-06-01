@@ -32,7 +32,7 @@ const { t } = useI18n();
 // Rasmlar
 import starImg from '/star.svg';
 import ai1 from '/Artboard4.jpg';
-import ai2 from '/Artboard1.jpg';
+import ai2 from '/arra.jpg';
 import ai3 from '/bur.jpg';
 import ai4 from '/hiltibur.jpg';
 
