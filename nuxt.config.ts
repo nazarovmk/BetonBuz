@@ -5,11 +5,19 @@ export default defineNuxtConfig({
 	compatibilityDate: '2024-04-03',
 	devtools: { enabled: true },
 
-	// Modules
-	modules: ['@nuxt/ui', '@nuxtjs/tailwindcss', 'nuxt-swiper', 'nuxt-gtag', '@nuxtjs/i18n', '@vueuse/nuxt'],
+	modules: ['@nuxt/ui', '@nuxtjs/sitemap', '@nuxtjs/tailwindcss', 'nuxt-swiper', 'nuxt-gtag', '@nuxtjs/i18n', '@vueuse/nuxt'],
 
 	devServer: {
 		port: 3672
+	},
+
+	runtimeConfig: {
+		public: {
+			sitemap: {
+				siteUrl: 'https://www.betonteshishkesishxizmati.uz/',
+				routes: ['/']
+			}
+		}
 	},
 
 	gtag: {
@@ -75,37 +83,39 @@ export default defineNuxtConfig({
 
 	app: {
 		head: {
-			title: 'BETON BUZ',
+			title: 'Beton teshish va kesish xizmati Toshkentda | UY BUZ',
 			meta: [
-				{ name: 'description', content: 'UY BUZ — beton teshish, buzish va demontaj xizmatlari' },
-				{ name: 'keywords', content: 'uy buzish, beton teshish, demontaj, xizmat, texnika' },
+				{ name: 'description', content: 'Toshkentda beton teshish, kesish, buzish va demontaj xizmatlari. Zamonaviy texnika va tajribali jamoa bilan xizmat ko‘rsatamiz.' },
+				{ name: 'keywords', content: 'beton teshish, beton kesish, uy buzish, demontaj, xizmatlar, Toshkent, beton buzish' },
 				{ name: 'author', content: 'UY BUZ Team' },
 				{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
 				{ name: 'robots', content: 'index, follow' },
 				{ name: 'googlebot', content: 'index, follow' },
+				{ name: 'referrer', content: 'no-referrer-when-downgrade' },
 				{ name: 'msapplication-TileColor', content: '#0A0A0A' },
 				{ name: 'theme-color', content: '#0A0A0A' },
-				{ name: 'referrer', content: 'no-referrer-when-downgrade' },
 
 				// Open Graph
 				{ property: 'og:type', content: 'website' },
-				{ property: 'og:title', content: 'UY BUZ — beton teshish va buzish xizmatlari' },
-				{ property: 'og:description', content: 'Beton teshish va buzish xizmatlarini professional jamoamiz bilan oson va tez amalga oshiring.' },
-				{ property: 'og:image', content: 'https://www.uybuz.uz/preview.png' },
-				{ property: 'og:url', content: 'https://www.uybuz.uz' },
+				{ property: 'og:title', content: 'Beton teshish va kesish xizmati Toshkentda | UY BUZ' },
+				{ property: 'og:description', content: 'Beton teshish, kesish, buzish va demontaj xizmatlari — tez, arzon va ishonchli.' },
+				{ property: 'og:image', content: 'https://www.betonteshishkesishxizmati.uz/preview.jpg' },
+				{ property: 'og:url', content: 'https://www.betonteshishkesishxizmati.uz' },
 				{ property: 'og:locale', content: 'uz_UZ' },
+				{ property: 'og:site_name', content: 'UY BUZ' },
 
 				// Twitter Card
 				{ name: 'twitter:card', content: 'summary_large_image' },
-				{ name: 'twitter:title', content: 'UY BUZ — beton teshish xizmati' },
-				{ name: 'twitter:description', content: 'Beton teshish, buzish va demontaj xizmatlari — yuqori sifat, past narx.' },
-				{ name: 'twitter:image', content: 'https://www.uybuz.uz/preview.png' }
+				{ name: 'twitter:title', content: 'Beton teshish xizmati Toshkentda | UY BUZ' },
+				{ name: 'twitter:description', content: 'Beton teshish, kesish va buzish xizmatlari — yuqori sifat, qulay narxlar.' },
+				{ name: 'twitter:image', content: 'https://www.betonteshishkesishxizmati.uz/preview.jpg' },
+				{ name: 'twitter:site', content: '@uybuz' }
 			],
 
 			link: [
 				{
 					rel: 'icon',
-					type: 'image/svg+xml',
+					type: 'image/jpeg',
 					href: '/beton.uzLogo.jpg'
 				}
 			],
@@ -150,7 +160,6 @@ export default defineNuxtConfig({
 			]
 		},
 
-		// Sahifa transition
 		pageTransition: {
 			name: 'route',
 			mode: 'out-in'
