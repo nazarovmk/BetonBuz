@@ -31,10 +31,10 @@ const { t } = useI18n();
 
 // Rasmlar
 import starImg from '/star.svg';
-import ai1 from '/Artboard4.jpg';
-import ai2 from '/arra.jpg';
-import ai3 from '/bur.jpg';
-import ai4 from '/hiltibur.jpg';
+import ai1 from '/Artboard.webp';
+import ai2 from '/arra.webp';
+import ai3 from '/bur.webp';
+import ai4 from '/hiltibur.webp';
 
 interface Solution {
 	img: string;

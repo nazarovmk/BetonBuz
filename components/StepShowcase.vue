@@ -78,10 +78,10 @@
 import 'aos/dist/aos.css';
 import { ref, onMounted, onUnmounted, watchEffect } from 'vue';
 import { useI18n } from 'vue-i18n';
-import works1 from '/betonbuz.uz.png';
-import works2 from '/hilti-bur.png';
-import works3 from '/desctop-bur.jpg';
-import works4 from '/uy-buz-hero.jpg';
+import works1 from '/betonbuz.uz.webp';
+import works2 from '/hilti-bur.webp';
+import works3 from '/desctop-bur.webp';
+import works4 from '/uy-buz-hero.webp';
 
 const { t } = useI18n();
 const activeStep = ref(0);

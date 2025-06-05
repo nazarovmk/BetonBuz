@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-const logos = ['/global-logo.svg', '/auto-oyna.png', '/uzkoramlogo.png', '/aska-textile.jpg'];
+const logos = ['/global-logo.svg', '/auto-oyna.webp', '/uzkoramlogo.webp', '/aska-textile.webp'];
 </script>
 
 <style scoped>

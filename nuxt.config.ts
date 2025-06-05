@@ -119,7 +119,7 @@ export default defineNuxtConfig({
 				{
 					rel: 'icon',
 					type: 'image/jpeg',
-					href: '/beton-uzLogo.jpg'
+					href: '/beton-uzLogo.webp'
 				}
 			],
 
