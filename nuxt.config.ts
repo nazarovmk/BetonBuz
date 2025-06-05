@@ -83,10 +83,13 @@ export default defineNuxtConfig({
 
 	app: {
 		head: {
-			title: 'Beton teshish va kesish xizmati Toshkentda | UY BUZ',
+			title: 'Beton teshish va kesish xizmati | UY BUZ',
 			meta: [
-				{ name: 'description', content: 'Toshkentda beton teshish, kesish, buzish va demontaj xizmatlari. Zamonaviy texnika va tajribali jamoa bilan xizmat ko‘rsatamiz.' },
-				{ name: 'keywords', content: 'beton teshish, beton kesish, uy buzish, demontaj, xizmatlar, Toshkent, beton buzish' },
+				{
+					name: 'description',
+					content: 'O‘zbekiston bo‘ylab beton teshish, kesish, buzish va demontaj xizmatlari. Zamonaviy texnika va tajribali jamoa bilan xizmat ko‘rsatamiz.'
+				},
+				{ name: 'keywords', content: 'beton teshish, beton kesish, uy buzish, demontaj, xizmatlar, beton buzish' },
 				{ name: 'author', content: 'UY BUZ Team' },
 				{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
 				{ name: 'robots', content: 'index, follow' },
@@ -97,7 +100,7 @@ export default defineNuxtConfig({
 
 				// Open Graph
 				{ property: 'og:type', content: 'website' },
-				{ property: 'og:title', content: 'Beton teshish va kesish xizmati Toshkentda | UY BUZ' },
+				{ property: 'og:title', content: 'Beton teshish va kesish xizmati | UY BUZ' },
 				{ property: 'og:description', content: 'Beton teshish, kesish, buzish va demontaj xizmatlari — tez, arzon va ishonchli.' },
 				{ property: 'og:image', content: 'https://www.betonteshishkesishxizmati.uz/preview.jpg' },
 				{ property: 'og:url', content: 'https://www.betonteshishkesishxizmati.uz' },
@@ -106,7 +109,7 @@ export default defineNuxtConfig({
 
 				// Twitter Card
 				{ name: 'twitter:card', content: 'summary_large_image' },
-				{ name: 'twitter:title', content: 'Beton teshish xizmati Toshkentda | UY BUZ' },
+				{ name: 'twitter:title', content: 'Beton teshish xizmati O‘zbekiston bo‘ylab | UY BUZ' },
 				{ name: 'twitter:description', content: 'Beton teshish, kesish va buzish xizmatlari — yuqori sifat, qulay narxlar.' },
 				{ name: 'twitter:image', content: 'https://www.betonteshishkesishxizmati.uz/preview.jpg' },
 				{ name: 'twitter:site', content: '@uybuz' }
@@ -116,7 +119,7 @@ export default defineNuxtConfig({
 				{
 					rel: 'icon',
 					type: 'image/jpeg',
-					href: '/beton.uzLogo.jpg'
+					href: '/beton-uzLogo.jpg'
 				}
 			],
 
