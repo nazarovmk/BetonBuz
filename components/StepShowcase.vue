@@ -7,7 +7,7 @@
 
 			<div class="space-y-8">
 				<div v-for="(step, index) in steps" :key="'mobile-step-' + index" class="bg-gray-800 border border-gray-700 rounded-xl p-4 text-left shadow-lg" data-aos="flip-up">
-					<img :src="step.img" :alt="step.title" class="rounded-md mb-3 w-full h-auto object-cover" />
+					<img :src="step.img" :alt="step.title" class="rounded-md mb-3 w-full h-auto object-cover" loading="lazy" />
 					<h3 class="text-xl font-semibold mb-1 text-blue-300">{{ index + 1 }}. {{ step.title }}</h3>
 					<p class="text-gray-400 text-sm">{{ step.description }}</p>
 				</div>
@@ -65,6 +65,7 @@
 							:alt="step.title"
 							class="w-full h-auto object-cover transition-all duration-500"
 							:class="{ 'brightness-100': activeStep === index, 'brightness-75': activeStep !== index }"
+							loading="lazy"
 						/>
 					</div>
 				</div>

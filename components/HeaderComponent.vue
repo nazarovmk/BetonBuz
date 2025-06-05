@@ -2,7 +2,7 @@
 	<div class="w-full">
 		<header class="sticky top-0 w-full shadow-md rounded-xl px-6 max-w-5xl mx-auto flex items-center justify-between z-[100] bg-white backdrop-blur">
 			<div class="flex items-center gap-2 min-w-[100px]">
-				<img src="/beton-uzLogo.jpg" alt="Beton-teshish-kesish-logo" class="h-16 md:h-16 w-auto object-contain" />
+				<img src="/beton-uzLogo.jpg" alt="Beton-teshish-kesish-logo" class="h-16 md:h-16 w-auto object-contain" loading="lazy" />
 			</div>
 			<nav class="hidden lg:flex items-center gap-10 text-[#1E1E1E] font-medium text-base xl:text-md">
 				<NuxtLink @click="$emit('scroll-to', 'home')" class="hover:underline">

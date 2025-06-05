@@ -5,7 +5,7 @@
 				class="inline-flex items-center gap-2 bg-[#F9F9F9] shadow-md rounded-[12px] px-4 py-2 text-md text-[#1E1E1E] mb-6 border-[3px] border-white cursor-pointer"
 				style="box-shadow: 0px 4px 10.3px 0px #5c5c5c1a"
 			>
-				<img :src="starImg" alt="Beton-teshish-kesish" />
+				<img :src="starImg" alt="Beton-teshish-kesish" loading="lazy" />
 				{{ $t('smartSolution.title') }}
 			</div>
 			<h2 class="text-2xl md:text-4xl font-medium my-2 text-[#1E1E1E]">
@@ -16,7 +16,7 @@
 		<div class="relative max-w-6xl mx-auto mt-[32px] px-4">
 			<div class="solutions-grid space-y-8 md:space-y-0">
 				<div v-for="(item, index) in solutions" :key="index">
-					<img :src="item.img" alt="Beton-teshish-kesish" class="solution-img" />
+					<img :src="item.img" alt="Beton-teshish-kesish" class="solution-img" loading="lazy" />
 				</div>
 			</div>
 		</div>
