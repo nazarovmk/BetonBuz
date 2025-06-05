@@ -1,8 +1,9 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+// nuxt.config.ts
 import svgLoader from 'vite-svg-loader';
 
 export default defineNuxtConfig({
 	compatibilityDate: '2024-04-03',
+
 	devtools: { enabled: true },
 
 	modules: ['@nuxt/ui', '@nuxtjs/sitemap', '@nuxtjs/tailwindcss', 'nuxt-swiper', 'nuxt-gtag', '@nuxtjs/i18n', '@vueuse/nuxt'],
@@ -14,8 +15,14 @@ export default defineNuxtConfig({
 	runtimeConfig: {
 		public: {
 			sitemap: {
-				siteUrl: 'https://www.betonteshishkesishxizmati.uz/',
-				routes: ['/']
+				siteUrl: 'https://www.betonteshishkesishxizmati.uz',
+				trailingSlash: true,
+				defaults: {
+					changefreq: 'daily',
+					priority: 1,
+					lastmod: new Date().toISOString()
+				},
+				autoLastmod: true
 			}
 		}
 	},
@@ -83,9 +90,11 @@ export default defineNuxtConfig({
 
 	app: {
 		head: {
-			title: 'Beton teshish va kesish xizmati | UY BUZ',
+			titleTemplate: '%s | Beton teshish va kesish xizmati',
+			title: 'UY BUZ',
 			meta: [
 				{
+					hid: 'description',
 					name: 'description',
 					content: 'O‘zbekiston bo‘ylab beton teshish, kesish, buzish va demontaj xizmatlari. Zamonaviy texnika va tajribali jamoa bilan xizmat ko‘rsatamiz.'
 				},
@@ -98,7 +107,6 @@ export default defineNuxtConfig({
 				{ name: 'msapplication-TileColor', content: '#0A0A0A' },
 				{ name: 'theme-color', content: '#0A0A0A' },
 
-				// Open Graph
 				{ property: 'og:type', content: 'website' },
 				{ property: 'og:title', content: 'Beton teshish va kesish xizmati | UY BUZ' },
 				{ property: 'og:description', content: 'Beton teshish, kesish, buzish va demontaj xizmatlari — tez, arzon va ishonchli.' },
@@ -107,55 +115,24 @@ export default defineNuxtConfig({
 				{ property: 'og:locale', content: 'uz_UZ' },
 				{ property: 'og:site_name', content: 'UY BUZ' },
 
-				// Twitter Card
 				{ name: 'twitter:card', content: 'summary_large_image' },
 				{ name: 'twitter:title', content: 'Beton teshish xizmati O‘zbekiston bo‘ylab | UY BUZ' },
 				{ name: 'twitter:description', content: 'Beton teshish, kesish va buzish xizmatlari — yuqori sifat, qulay narxlar.' },
 				{ name: 'twitter:image', content: 'https://www.betonteshishkesishxizmati.uz/preview.jpg' },
 				{ name: 'twitter:site', content: '@uybuz' }
 			],
-
 			link: [
-				{
-					rel: 'icon',
-					type: 'image/jpeg',
-					href: '/beton-uzLogo.webp'
-				}
+				{ rel: 'icon', type: 'image/webp', href: '/beton-uzLogo.webp' },
+				{ rel: 'canonical', href: 'https://www.betonteshishkesishxizmati.uz/' }
 			],
-
 			script: [
 				{
-					children: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'AW-1679422383');
-          `
+					children: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'AW-1679422383');`
 				},
 				{
-					children: `
-            (function(m,e,t,r,i,k,a){
-              m[i]=m[i]||function(){
-                (m[i].a=m[i].a||[]).push(arguments)
-              };
-              m[i].l=1*new Date();
-              for(var j=0;j<document.scripts.length;j++){
-                if(document.scripts[j].src===r){return;}
-              }
-              k=e.createElement(t),a=e.getElementsByTagName(t)[0],
-              k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-            })(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
-            ym(99310921,"init",{
-              clickmap:true,
-              trackLinks:true,
-              accurateTrackBounce:true,
-              webvisor:true,
-              ecommerce:"dataLayer"
-            });
-          `
+					children: `(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(99310921,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true,ecommerce:"dataLayer"});`
 				}
 			],
-
 			noscript: [
 				{
 					children: `<div><img src="https://mc.yandex.ru/watch/99310921" style="position:absolute; left:-9999px;" alt="" /></div>`
@@ -167,6 +144,7 @@ export default defineNuxtConfig({
 			name: 'route',
 			mode: 'out-in'
 		},
+
 		layoutTransition: {
 			name: 'route',
 			mode: 'out-in'
